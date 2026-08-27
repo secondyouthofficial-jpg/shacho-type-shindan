@@ -360,10 +360,9 @@
       <div class="t1">日本新規事業協会</div>
       <div class="t2">ここから先は、公式LINEで<br>全て見られます</div>
       <div class="t3">
-        ・モザイク部分の解除（挑戦の◯✕／受けてはいけないアドバイス／合う組織の作り方）<br>
+        ・モザイク部分の解除（受けてはいけないアドバイス／合う組織の作り方）<br>
         ・あなたの<b>ベストパートナー</b>がどのタイプか<br>
-        ・正式版（32問）の診断結果と早見表の完全版<br>
-        ・いま考えている新規事業の市場調査レポート1本（無料）
+        ・正式版（32問）の診断結果と早見表の完全版
       </div>
       <button class="line-btn"><span class="line-mark">LINE</span>友だち追加して続きを見る<small>（準備中）</small></button>
       <div class="t4">さらに無料のマイページ登録で、ベストパートナータイプの経営者・バックオフィス人材・士業と、全国どこからでもZoomでつながるビジネスマッチングを準備しています。</div>
@@ -671,8 +670,8 @@ function renderProfile(code, personal){
   const quoted=arr=>arr.map(([q,why])=>'<div class="item"><span class="q">「'+q+'」</span><span class="why">'+why+'</span></div>').join('');
   const rows=[
     ['合うアドバイス','ok',quoted(t.good),false],
-    ['うまくいきやすい<br>挑戦','ok',items(t.plus),true],
-    ['うまくいきにくい<br>挑戦','ng',items(t.minus),true],
+    ['うまくいきやすい<br>挑戦','ok',items(t.plus),false],
+    ['うまくいきにくい<br>挑戦','ng',items(t.minus),false],
     ['受けてはいけない<br>アドバイス','ng',quoted(t.poison),true],
     ['合う組織の<br>作り方','',items(t.org),true],
     ['ベストパートナー','','<div class="ot-partner"><div class="ava"><img src="'+IMGS[partnerCode]+'" alt="'+p.role+'"></div><div><b>【'+p.role+'】</b><span style="color:var(--red);font-size:12px;margin-left:6px;">'+partnerCode.split('').map(k=>LABEL[k]).join('×')+'</span><br><span style="font-size:12px;color:var(--ink-soft);">拡大方法が正反対。組むと弱点を全部埋め合えます。ただし相手のやり方の真似は事故の元。</span></div></div>'],
