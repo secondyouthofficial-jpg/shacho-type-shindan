@@ -254,6 +254,8 @@
     font-weight:800;font-size:16px;padding:16px 44px;border-radius:999px;border:none;cursor:pointer;
     box-shadow:0 2px 0 #05A648, 0 16px 30px -16px rgba(6,199,85,.5);
   }
+  .line-mini{text-align:center;margin-top:16px;}
+  .line-btn.sm{font-size:14px;padding:12px 34px;}
   .line-btn .line-mark{
     background:#fff;color:#06C755;font-size:11px;font-weight:900;
     border-radius:6px;padding:2px 7px;letter-spacing:0.02em;
@@ -398,12 +400,14 @@
     <div class="r-card">
       <h3>話を聞いてはいけない相手</h3>
       <p id="rTenteki"></p>
+      <div class="line-mini"><button class="line-btn sm"><span class="line-mark">LINE</span>続きを受け取る<small>（準備中）</small></button></div>
     </div>
 
     <div class="r-card omi">
       <div class="omi-title" id="omiTitle"></div>
       <div id="omiBody"></div>
     </div>
+    <div class="line-mini"><button class="line-btn sm"><span class="line-mark">LINE</span>モザイクの続きを受け取る<small>（準備中）</small></button></div>
 
     <div class="r-card">
       <h3>ここから先の読み物</h3>
@@ -762,7 +766,7 @@ function renderProfile(code, personal){
   });
   document.getElementById('rTenteki').textContent=(D.tenteki_teaser||'')+'（続きは、公式LINEで）';
   document.getElementById('rLockTeaser').textContent=LOCKTEASER[code]||'';
-  document.getElementById('registList').innerHTML='登録すると、モザイクが解けます（天敵に言われてやってしまう1つ／受けてはいけないアドバイス／合う組織の作り方／<b>ベストパートナーが誰か</b>）。そのあとも、【'+t.role+'】のあなたに効くアドバイスが定期的に届きます。';
+  document.getElementById('registList').innerHTML='【'+t.role+'】のあなたには、まだ言い当てられていない続きがあります。登録するとモザイクが解けて、そのあとも、あなたをもっと深く言い当てる読み物が定期的に届きます。';
 
   const ar=document.getElementById('rAruaru');
   ar.innerHTML='';
