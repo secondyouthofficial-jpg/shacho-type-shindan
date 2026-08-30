@@ -38,7 +38,9 @@
     margin-bottom:14px;
   }
   h1 .accent{color:var(--red);}
-  .hero-sub{font-size:15px;color:var(--ink-soft);max-width:460px;margin:0 auto 8px;text-wrap:balance;}
+  .hero-sub{font-size:15px;color:var(--ink-soft);max-width:480px;margin:0 auto 8px;text-wrap:balance;line-height:2.0;}
+  .hero-sub b{color:var(--ink);font-size:16px;}
+  .hero-sub .nb{white-space:nowrap;display:inline-block;}
   .hero-avatars{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px auto 8px;max-width:640px;}
   .mini-ava{
     width:68px;height:68px;border-radius:50%;
@@ -167,6 +169,17 @@
   .r-card h3::before{content:"";width:4px;height:18px;background:var(--red);border-radius:2px;flex-shrink:0;}
   .r-card h3 .ico{font-size:20px;}
   .r-card p{font-size:14px;color:var(--ink-soft);}
+  .ax-row{margin-bottom:22px;}
+  .ax-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px;}
+  .ax-name{font-size:11px;letter-spacing:0.12em;color:var(--ink-soft);flex-shrink:0;}
+  .ax-poles{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:12px;}
+  .ax-pole{font-size:13px;color:var(--ink-soft);white-space:nowrap;}
+  .ax-pole.win{font-size:14.5px;font-weight:800;color:var(--red-deep);}
+  .ax-pole .pctv{font-size:13px;margin-left:6px;}
+  .ax-track{position:relative;height:10px;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:999px;}
+  .ax-mid{position:absolute;left:50%;top:-5px;bottom:-5px;width:2px;background:var(--ink-soft);opacity:.5;transform:translateX(-50%);border-radius:2px;}
+  .ax-fill{position:absolute;top:1px;bottom:1px;background:var(--red);border-radius:999px;}
+  .ax-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:var(--red-deep);border:3px solid var(--white);box-shadow:0 2px 8px rgba(0,0,0,.4);}
   .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:13px;font-weight:800;}
   .bar-row .pl{min-width:64px;max-width:110px;text-align:center;flex-shrink:0;font-size:11px;line-height:1.4;}
   .bar-row .pl.win{color:var(--red);font-size:13px;}
@@ -248,6 +261,13 @@
   footer{padding:36px 0 52px;text-align:center;font-size:11px;color:var(--ink-soft);line-height:2;}
   footer .brand{font-size:13px;font-weight:800;letter-spacing:0.12em;color:var(--ink);}
 
+  @media(max-width:600px){
+    .hero{padding:40px 0 44px;}
+    .hero-avatars{gap:6px;margin:20px auto 4px;max-width:236px;}
+    .mini-ava{width:52px;height:52px;}
+    .cta{margin-top:16px;padding:16px 48px;}
+  }
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.on{opacity:1;transform:none;}
@@ -262,10 +282,10 @@
     <div class="wrap">
       <span class="eyebrow">日本新規事業協会｜社長タイプ診断（β版）</span>
       <h1>あなたは<br>どの<span class="accent">社長タイプ</span>？</h1>
-      <p class="hero-sub">性格ではなく「何を増やして大きくなる社長か」で、16タイプに分かれます。20問・約3分。</p>
+      <p class="hero-sub"><b><span class="nb">社長は、いちばん</span><span class="nb">分かってもらえない仕事です。</span></b><br>あなたのすごさも、周りに誤解されがちなことも、20問で言い当てて、言葉にします。</p>
       <div class="hero-avatars" id="heroAvatars"></div>
       <button class="cta" onclick="startQuiz()">診断スタート！</button>
-      <p class="cta-note">無料で診断結果を確認！</p>
+      <p class="cta-note">無料・約3分で診断結果を確認！</p>
     </div>
   </div>
 
@@ -273,7 +293,7 @@
     <div class="wrap">
       <h2>この診断で分かること</h2>
       <p class="h2-sub">WHAT YOU GET</p>
-      <p class="lead">結果はタイプ早見表で出ます。うまくいきやすい挑戦・いきにくい挑戦、あなたに合うアドバイスと毒になるアドバイス、合う組織の作り方、ベストパートナーまで1枚で分かります。</p>
+      <p class="lead">この診断が測るのは性格ではなく、「何を増やして大きくなる社長か」という増やし方です。結果はタイプ早見表で出ます。うまくいきやすい挑戦・いきにくい挑戦、あなたに合うアドバイスと毒になるアドバイス、合う組織の作り方、ベストパートナーまで1枚で分かります。</p>
       <div class="balloon">
         たとえば「友達を採用するな」「先に営業を3人雇え」。<br>
         <span style="font-size:13px;color:var(--ink-soft);">これ、あるタイプの社長には正解で、別のタイプの社長には毒です。タイプに優劣はありません。受けるべきアドバイスの宛先が違うだけです。</span>
@@ -348,7 +368,8 @@
     </div>
 
     <div class="r-card" id="barCard">
-      <h3>拡大方法のバランス</h3>
+      <h3>あなたのタイプ</h3>
+      <p style="font-size:12.5px;margin-bottom:18px;">どちらが良い・悪いではありません。真ん中（50%）からどちらに傾いているか、あなたの傾向の位置です。</p>
       <div id="barArea"></div>
     </div>
 
@@ -389,7 +410,6 @@
       <div class="t2">ここから先は、公式LINEで<br>お送りします</div>
       <div class="t3" id="registList"></div>
       <button class="line-btn"><span class="line-mark">LINE</span>友だち追加して続きを受け取る<small>（準備中）</small></button>
-      <div class="t4">さらに無料のマイページ登録で、ベストパートナータイプの経営者・バックオフィス人材・士業と、全国どこからでもZoomでつながるビジネスマッチングを準備しています。</div>
     </div>
 
     <div class="r-share" id="shareWrap">
@@ -639,15 +659,20 @@ function showResult(){
   barArea.innerHTML='';
   AXES.forEach((ax,i)=>{
     const aWin=net[i]>=0;
-    const pct=pcts[i];
+    const pct=pcts[i];                    // 勝ち側の%（50〜100）
+    const pos=aWin?(100-pct):pct;         // 左端=左極100% … 右端=右極100%
+    const left=Math.min(50,pos), width=Math.abs(pos-50);
     const row=document.createElement('div');
-    row.className='bar-row';
+    row.className='ax-row';
     row.innerHTML=
-      '<span class="bar-axis">'+ax.name+'</span>'
-      +'<span class="pl'+(aWin?' win':'')+'">'+LABEL[ax.a]+'</span>'
-      +'<div class="bar-track"><div class="bar-fill" style="width:'+(aWin?pct:100-pct)+'%"></div></div>'
-      +'<span class="pl'+(!aWin?' win':'')+'">'+LABEL[ax.b]+'</span>'
-      +'<span class="bar-pct">'+pct+'%</span>';
+      '<div class="ax-name">'+ax.name+'</div>'
+      +'<div class="ax-poles">'
+      +'<span class="ax-pole'+(aWin?' win':'')+'">'+LABEL[ax.a]+(aWin?'<span class="pctv">'+pct+'%</span>':'')+'</span>'
+      +'<span class="ax-pole'+(!aWin?' win':'')+'">'+LABEL[ax.b]+(!aWin?'<span class="pctv">'+pct+'%</span>':'')+'</span>'
+      +'</div>'
+      +'<div class="ax-track"><div class="ax-mid"></div>'
+      +'<div class="ax-fill" style="left:'+left+'%;width:'+width+'%"></div>'
+      +'<div class="ax-dot" style="left:'+pos+'%"></div></div>';
     barArea.appendChild(row);
   });
 }
@@ -730,7 +755,7 @@ function renderProfile(code, personal){
   });
   document.getElementById('rTenteki').textContent=(D.tenteki_teaser||'')+'（続きは、公式LINEで）';
   document.getElementById('rLockTeaser').textContent=LOCKTEASER[code]||'';
-  document.getElementById('registList').innerHTML='【'+t.role+'】専用の続き：天敵に言われてやってしまう1つ／受けてはいけないアドバイス3つ／合う組織の作り方／<b>ベストパートナーが誰か</b>。あわせて、あなたのタイプの経営者が気になる読み物をお届けします。';
+  document.getElementById('registList').innerHTML='登録すると、モザイクが解けます（天敵に言われてやってしまう1つ／受けてはいけないアドバイス／合う組織の作り方／<b>ベストパートナーが誰か</b>）。そのあとも、【'+t.role+'】のあなたに効くアドバイスが定期的に届きます。';
 
   const ar=document.getElementById('rAruaru');
   ar.innerHTML='';
