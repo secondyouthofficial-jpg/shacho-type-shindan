@@ -388,11 +388,6 @@
     </div>
 
     <div class="r-card">
-      <h3>あなたが新規事業をやるなら</h3>
-      <ol id="rShinki"></ol>
-    </div>
-
-    <div class="r-card">
       <h3>新規事業をやると、こうなりがち</h3>
       <ul id="rAruaru" class="aru"></ul>
     </div>
@@ -771,14 +766,6 @@ function renderProfile(code, personal){
   const ar=document.getElementById('rAruaru');
   ar.innerHTML='';
   (t.aruaru||[]).slice(0,2).forEach(x=>{const li=document.createElement('li');li.textContent=x;ar.appendChild(li);});
-
-  const sk=document.getElementById('rShinki');
-  sk.innerHTML='';
-  (t.shinki||[]).forEach((x,i)=>{
-    const li=document.createElement('li');
-    li.innerHTML='<span class="num">'+(i+1)+'</span><span>'+x+'</span>';
-    sk.appendChild(li);
-  });
 
   const lk=document.getElementById('rLocked');
   lk.innerHTML='';
